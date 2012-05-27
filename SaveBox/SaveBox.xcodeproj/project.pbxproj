@@ -14,10 +14,6 @@
 		B92519A21572874A006DFD5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519A11572874A006DFD5F /* main.m */; };
 		B92519A61572874A006DFD5F /* SaveboxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519A51572874A006DFD5F /* SaveboxAppDelegate.m */; };
 		B92519A91572874A006DFD5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92519A71572874A006DFD5F /* MainStoryboard.storyboard */; };
-		B92519AE1572874A006DFD5F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = B92519AD1572874A006DFD5F /* first.png */; };
-		B92519B01572874A006DFD5F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B92519AF1572874A006DFD5F /* first@2x.png */; };
-		B92519B51572874A006DFD5F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = B92519B41572874A006DFD5F /* second.png */; };
-		B92519B71572874A006DFD5F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B92519B61572874A006DFD5F /* second@2x.png */; };
 		B92519C315728CB0006DFD5F /* BackupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519C215728CB0006DFD5F /* BackupTableViewController.m */; };
 		B92519C815728CF1006DFD5F /* RestoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519C715728CF1006DFD5F /* RestoreTableViewController.m */; };
 		B92519CB15728D16006DFD5F /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519CA15728D16006DFD5F /* SettingsTableViewController.m */; };
@@ -35,10 +31,6 @@
 		B92519A41572874A006DFD5F /* SaveboxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaveboxAppDelegate.h; sourceTree = "<group>"; };
 		B92519A51572874A006DFD5F /* SaveboxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaveboxAppDelegate.m; sourceTree = "<group>"; };
 		B92519A81572874A006DFD5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B92519AD1572874A006DFD5F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		B92519AF1572874A006DFD5F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		B92519B41572874A006DFD5F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		B92519B61572874A006DFD5F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		B92519C115728CB0006DFD5F /* BackupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackupTableViewController.h; path = Upload/BackupTableViewController.h; sourceTree = "<group>"; };
 		B92519C215728CB0006DFD5F /* BackupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackupTableViewController.m; path = Upload/BackupTableViewController.m; sourceTree = "<group>"; };
 		B92519C615728CF1006DFD5F /* RestoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestoreTableViewController.h; path = Download/RestoreTableViewController.h; sourceTree = "<group>"; };
@@ -97,10 +89,6 @@
 				B92519A41572874A006DFD5F /* SaveboxAppDelegate.h */,
 				B92519A51572874A006DFD5F /* SaveboxAppDelegate.m */,
 				B92519A71572874A006DFD5F /* MainStoryboard.storyboard */,
-				B92519AD1572874A006DFD5F /* first.png */,
-				B92519AF1572874A006DFD5F /* first@2x.png */,
-				B92519B41572874A006DFD5F /* second.png */,
-				B92519B61572874A006DFD5F /* second@2x.png */,
 				B925199C1572874A006DFD5F /* Supporting Files */,
 			);
 			path = SaveBox;
@@ -138,8 +126,8 @@
 		B92519C015728C4D006DFD5F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B92519C915728D16006DFD5F /* SettingsTableViewController.h */,
 				B92519CA15728D16006DFD5F /* SettingsTableViewController.m */,
+				B92519C915728D16006DFD5F /* SettingsTableViewController.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -197,10 +185,6 @@
 			files = (
 				B92519A01572874A006DFD5F /* InfoPlist.strings in Resources */,
 				B92519A91572874A006DFD5F /* MainStoryboard.storyboard in Resources */,
-				B92519AE1572874A006DFD5F /* first.png in Resources */,
-				B92519B01572874A006DFD5F /* first@2x.png in Resources */,
-				B92519B51572874A006DFD5F /* second.png in Resources */,
-				B92519B71572874A006DFD5F /* second@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
