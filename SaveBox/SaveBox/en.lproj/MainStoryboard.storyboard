@@ -17,8 +17,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="5PV-lh-1bY" kind="relationship" relationship="viewControllers" id="fYI-wZ-eKZ"/>
-                        <segue destination="8Rh-ke-1Cv" kind="relationship" relationship="viewControllers" id="zSa-Fl-prh"/>
-                        <segue destination="FkV-aP-Yck" kind="relationship" relationship="viewControllers" id="9xp-4c-btH"/>
+                        <segue destination="Zxe-rm-dYR" kind="relationship" relationship="viewControllers" id="c3h-18-0ru"/>
+                        <segue destination="FkV-aP-Yck" kind="relationship" relationship="viewControllers" id="ZKH-pe-ibK"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hdC-h7-ACo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BackupCell" id="hdC-h7-ACo">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -48,10 +48,39 @@
                             <outlet property="delegate" destination="5PV-lh-1bY" id="Rvb-3U-9nW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Backup" id="JXr-lx-xdF"/>
+                    <tabBarItem key="tabBarItem" title="Backup" image="27-circle-north.png" id="JXr-lx-xdF"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="728" y="143"/>
+        </scene>
+        <scene sceneID="cng-BN-jIh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9d-aX-phx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController title="Restore Table View Controller" id="Zxe-rm-dYR" customClass="RestoreTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="C1K-MZ-ZsA">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Nqb-xA-ehl">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zxe-rm-dYR" id="Bd2-AR-5JL"/>
+                            <outlet property="delegate" destination="Zxe-rm-dYR" id="vd3-SZ-w5b"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Restore" image="23-circle-south.png" id="XAq-7t-DFj"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="729" y="734"/>
         </scene>
         <scene sceneID="Ang-Sv-jgY">
             <objects>
@@ -77,41 +106,17 @@
                             <outlet property="delegate" destination="FkV-aP-Yck" id="wYi-cc-qhv"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="qd7-4E-FiB"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="19-gear.png" id="qd7-4E-FiB"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="56" y="758"/>
         </scene>
-        <scene sceneID="8on-Nj-gv7">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Eb-my-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Restore Table View Controller" id="8Rh-ke-1Cv" customClass="RestoreTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7tz-5G-yGK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="p0i-07-MGj">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8Rh-ke-1Cv" id="1g4-To-xvr"/>
-                            <outlet property="delegate" destination="8Rh-ke-1Cv" id="lLP-Dm-UIe"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Restore" id="qxz-ZI-haM"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="656" y="762"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="19-gear.png" width="26" height="26"/>
+        <image name="23-circle-south.png" width="28" height="28"/>
+        <image name="27-circle-north.png" width="28" height="28"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
