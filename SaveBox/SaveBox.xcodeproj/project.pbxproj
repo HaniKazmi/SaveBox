@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B91975231573BAF10096239D /* SaveBox.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = B92519911572874A006DFD5F /* SaveBox.app */; };
 		B92519961572874A006DFD5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92519951572874A006DFD5F /* UIKit.framework */; };
 		B92519981572874A006DFD5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92519971572874A006DFD5F /* Foundation.framework */; };
 		B925199A1572874A006DFD5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92519991572874A006DFD5F /* CoreGraphics.framework */; };
@@ -18,9 +19,33 @@
 		B92519C815728CF1006DFD5F /* RestoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519C715728CF1006DFD5F /* RestoreTableViewController.m */; };
 		B92519CB15728D16006DFD5F /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519CA15728D16006DFD5F /* SettingsTableViewController.m */; };
 		B9833CCB1573982D00ED3DA5 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = B9833CCA1573982D00ED3DA5 /* Icons */; };
-		B9833CF3157398E400ED3DA5 /* DEBIAN in Resources */ = {isa = PBXBuildFile; fileRef = B9833CF2157398E400ED3DA5 /* DEBIAN */; };
-		B98AB6D31572A43900A47BA5 /* postinst in Resources */ = {isa = PBXBuildFile; fileRef = B98AB6D21572A43900A47BA5 /* postinst */; };
+		B99E12581573D73800771F88 /* control in Resources */ = {isa = PBXBuildFile; fileRef = B99E12561573D73800771F88 /* control */; };
+		B99E12591573D73800771F88 /* control.txt in Resources */ = {isa = PBXBuildFile; fileRef = B99E12571573D73800771F88 /* control.txt */; };
+		B99E125A1573D74800771F88 /* control in CopyFiles */ = {isa = PBXBuildFile; fileRef = B99E12561573D73800771F88 /* control */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B91975221573BADE0096239D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = Deb/Applications;
+			dstSubfolderSpec = 16;
+			files = (
+				B91975231573BAF10096239D /* SaveBox.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B91975241573BB0B0096239D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Deb/DEBIAN;
+			dstSubfolderSpec = 16;
+			files = (
+				B99E125A1573D74800771F88 /* control in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B92519911572874A006DFD5F /* SaveBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,8 +66,8 @@
 		B92519C915728D16006DFD5F /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		B92519CA15728D16006DFD5F /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		B9833CCA1573982D00ED3DA5 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
-		B9833CF2157398E400ED3DA5 /* DEBIAN */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DEBIAN; sourceTree = "<group>"; };
-		B98AB6D21572A43900A47BA5 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = postinst; sourceTree = "<group>"; };
+		B99E12561573D73800771F88 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		B99E12571573D73800771F88 /* control.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +128,8 @@
 		B925199C1572874A006DFD5F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B9833CF2157398E400ED3DA5 /* DEBIAN */,
+				B99E12551573D73800771F88 /* DEBIAN */,
 				B9833CCA1573982D00ED3DA5 /* Icons */,
-				B98AB6CD1572A2FE00A47BA5 /* DEBIAN */,
 				B925199D1572874A006DFD5F /* SaveBox-Info.plist */,
 				B925199E1572874A006DFD5F /* InfoPlist.strings */,
 				B92519A11572874A006DFD5F /* main.m */,
@@ -141,10 +165,11 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		B98AB6CD1572A2FE00A47BA5 /* DEBIAN */ = {
+		B99E12551573D73800771F88 /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				B98AB6D21572A43900A47BA5 /* postinst */,
+				B99E12561573D73800771F88 /* control */,
+				B99E12571573D73800771F88 /* control.txt */,
 			);
 			name = DEBIAN;
 			path = Package/DEBIAN;
@@ -161,6 +186,9 @@
 				B925198D1572874A006DFD5F /* Sources */,
 				B925198E1572874A006DFD5F /* Frameworks */,
 				B925198F1572874A006DFD5F /* Resources */,
+				B91975221573BADE0096239D /* CopyFiles */,
+				B91975241573BB0B0096239D /* CopyFiles */,
+				B99E12541573BC3D00771F88 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -203,9 +231,9 @@
 			files = (
 				B92519A01572874A006DFD5F /* InfoPlist.strings in Resources */,
 				B92519A91572874A006DFD5F /* MainStoryboard.storyboard in Resources */,
-				B98AB6D31572A43900A47BA5 /* postinst in Resources */,
 				B9833CCB1573982D00ED3DA5 /* Icons in Resources */,
-				B9833CF3157398E400ED3DA5 /* DEBIAN in Resources */,
+				B99E12581573D73800771F88 /* control in Resources */,
+				B99E12591573D73800771F88 /* control.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +252,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN)) \nbN=$(($bN + 1)) \nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"";
+			shellScript = "bN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbN=$((0x$bN))\nbN=$(($bN + 1)) \nbN=$(printf \"%X\" $bN)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bN\" \"$INFOPLIST_FILE\"";
+		};
+		B99E12541573BC3D00771F88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bN=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"$PLATFORM_NAME\" != iphonesimulator ]; then \ndpkg-deb -b \"$BUILD_DIR/Debug-iphoneos/Deb\" \"$BUILD_DIR/Debug-iphoneos/$PROJECT-$bN.deb\"\nrm -r \"$BUILD_DIR/Debug-iphoneos/Deb\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

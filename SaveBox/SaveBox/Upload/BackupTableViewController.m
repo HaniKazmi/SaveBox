@@ -39,10 +39,14 @@
     
     //Create list of application bundle names
     self.applicationsArray = [[NSArray alloc] initWithArray: self.ReturnBundleDictionaries];
-    NSLog(@"%@", applicationsArray);
-    NSSortDescriptor *alphaDescriptor = [[NSSortDescriptor alloc] initWithKey:@"CFBundleDisplayName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    self.applicationsArray= [applicationsArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphaDescriptor]];
-    NSLog(@"%@", applicationsArray);
+
+    //Alphabetisize
+    NSSortDescriptor *alphaDescriptor = [[NSSortDescriptor alloc] initWithKey: @"CFBundleDisplayName" 
+                                                                    ascending: YES 
+                                                                     selector: @selector(caseInsensitiveCompare:)];
+    self.applicationsArray = [applicationsArray sortedArrayUsingDescriptors:
+                              [NSArray arrayWithObject:alphaDescriptor]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -104,8 +108,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    NSDictionary *applicationDictionary = [applicationsArray objectAtIndex:indexPath.row];
+    NSDictionary *applicationDictionary = [applicationsArray objectAtIndex: indexPath.row];
     cell.textLabel.text = [applicationDictionary objectForKey: @"CFBundleDisplayName"];
+    cell.detailTextLabel.text = [applicationDictionary objectForKey: @"CFBundleIdentifier"];
     
     return cell;
 }
