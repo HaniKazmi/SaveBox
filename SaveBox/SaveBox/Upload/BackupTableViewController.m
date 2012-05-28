@@ -3,7 +3,7 @@
 //  SaveBox
 //
 //  Created by Hani Kazmi on 27/05/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Hani Kazmi. All rights reserved.
 //
 
 #import "BackupTableViewController.h"
