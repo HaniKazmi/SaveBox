@@ -1,0 +1,17 @@
+Package: HaniKazmi.SaveBox
+Name: Savebox
+Version: 0.1
+Description: Backup iDevice Saves
+Section: Utilities
+Depends: firmware (>= 5.0)
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: Hani Kazmi
+dev: Hani Kazmi
+Homepage: 
+Depiction: 
+Maintainer: Hani Kazmi
+Icon: 
+
