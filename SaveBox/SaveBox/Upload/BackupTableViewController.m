@@ -7,6 +7,13 @@
 //
 
 #import "BackupTableViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
+
+@interface BackupTableViewController () <DBRestClientDelegate>
+
+@property (nonatomic, readonly) DBRestClient* restClient;
+
+@end
 
 
 @implementation BackupTableViewController
@@ -33,6 +40,12 @@
 
 #pragma mark - View lifecycle
 
+- (void)didPressLink {
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:self];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,7 +59,6 @@
                                                                      selector: @selector(caseInsensitiveCompare:)];
     self.applicationsArray = [applicationsArray sortedArrayUsingDescriptors:
                               [NSArray arrayWithObject:alphaDescriptor]];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -158,6 +170,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self didPressLink];
+    
+    NSString *localPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSString *filename = @"Info.plist";
+    NSString *destDir = @"/";
+    [[self restClient] uploadFile:filename toPath:destDir
+                    withParentRev:nil fromPath:localPath];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -167,6 +187,7 @@
      */
 }
 
+#pragma mark - Data delegates
 
 - (NSArray *)ReturnBundleDictionaries
 {
@@ -228,6 +249,27 @@
     }
     
     return tApplicationNamesArray;
+}
+
+#pragma mark - Dropbox delegates
+
+- (DBRestClient *)restClient {
+    if (!restClient) {
+        restClient =
+        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
+    }
+    return restClient;
+}
+
+- (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath
+              from:(NSString*)srcPath metadata:(DBMetadata*)metadata {
+    
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+}
+
+- (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error {
+    NSLog(@"File upload failed with error - %@", error);
 }
 
 @end

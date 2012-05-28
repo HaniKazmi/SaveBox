@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BackupTableViewController : UITableViewController
+@class DBRestClient;
+
+@interface BackupTableViewController : UITableViewController{
+    DBRestClient *restClient;
+}
 
 @property (strong, nonatomic) NSArray *applicationsArray;
 @property (strong, nonatomic) NSArray *applicationNamesArray;
-
 - (NSArray *)ReturnBundleDictionaries;
 - (NSArray *)ReturnApplicationNames;
 

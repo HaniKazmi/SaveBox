@@ -7,6 +7,7 @@
 //
 
 #import "SaveboxAppDelegate.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 @implementation SaveboxAppDelegate
 
@@ -14,6 +15,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    DBSession* dbSession =
+    [[DBSession alloc]
+      initWithAppKey:@"rd3bo8670575jmb"
+      appSecret:@"wxpwzl6x00i4ca5"
+     root:kDBRootAppFolder]; // either kDBRootAppFolder or kDBRootDropbox
+    [DBSession setSharedSession:dbSession];
     // Override point for customization after application launch.
     return YES;
 }
@@ -55,6 +62,18 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    // Add whatever other url handling code your app requires here
+    return NO;
 }
 
 @end

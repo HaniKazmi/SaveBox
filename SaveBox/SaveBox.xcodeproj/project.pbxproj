@@ -19,9 +19,12 @@
 		B92519C815728CF1006DFD5F /* RestoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519C715728CF1006DFD5F /* RestoreTableViewController.m */; };
 		B92519CB15728D16006DFD5F /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92519CA15728D16006DFD5F /* SettingsTableViewController.m */; };
 		B9833CCB1573982D00ED3DA5 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = B9833CCA1573982D00ED3DA5 /* Icons */; };
+		B98B9C671573EAF900E5DB47 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98B9C661573EAF900E5DB47 /* QuartzCore.framework */; };
 		B99E12581573D73800771F88 /* control in Resources */ = {isa = PBXBuildFile; fileRef = B99E12561573D73800771F88 /* control */; };
 		B99E12591573D73800771F88 /* control.txt in Resources */ = {isa = PBXBuildFile; fileRef = B99E12571573D73800771F88 /* control.txt */; };
 		B99E125A1573D74800771F88 /* control in CopyFiles */ = {isa = PBXBuildFile; fileRef = B99E12561573D73800771F88 /* control */; };
+		B99E125C1573D8D500771F88 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99E125B1573D8D500771F88 /* DropboxSDK.framework */; };
+		B99E125E1573D90B00771F88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99E125D1573D90B00771F88 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,8 +69,11 @@
 		B92519C915728D16006DFD5F /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		B92519CA15728D16006DFD5F /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		B9833CCA1573982D00ED3DA5 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		B98B9C661573EAF900E5DB47 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B99E12561573D73800771F88 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		B99E12571573D73800771F88 /* control.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control.txt; sourceTree = "<group>"; };
+		B99E125B1573D8D500771F88 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		B99E125D1573D90B00771F88 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98B9C671573EAF900E5DB47 /* QuartzCore.framework in Frameworks */,
+				B99E125E1573D90B00771F88 /* Security.framework in Frameworks */,
 				B92519961572874A006DFD5F /* UIKit.framework in Frameworks */,
 				B92519981572874A006DFD5F /* Foundation.framework in Frameworks */,
 				B925199A1572874A006DFD5F /* CoreGraphics.framework in Frameworks */,
+				B99E125C1573D8D500771F88 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +113,9 @@
 		B92519941572874A006DFD5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B99E125D1573D90B00771F88 /* Security.framework */,
+				B98B9C661573EAF900E5DB47 /* QuartzCore.framework */,
+				B99E125B1573D8D500771F88 /* DropboxSDK.framework */,
 				B92519951572874A006DFD5F /* UIKit.framework */,
 				B92519971572874A006DFD5F /* Foundation.framework */,
 				B92519991572874A006DFD5F /* CoreGraphics.framework */,
@@ -352,6 +364,10 @@
 		B92519BB1572874B006DFD5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaveBox/SaveBox-Prefix.pch";
 				INFOPLIST_FILE = "SaveBox/SaveBox-Info.plist";
@@ -363,6 +379,10 @@
 		B92519BC1572874B006DFD5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SaveBox/SaveBox-Prefix.pch";
 				INFOPLIST_FILE = "SaveBox/SaveBox-Info.plist";
