@@ -3,7 +3,7 @@
 //  SaveBox
 //
 //  Created by Hani Kazmi on 27/05/2012.
-//  Copyright (c) 2012 Hani Kazmi. All rights reserved.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "BackupTableViewController.h"
@@ -11,8 +11,8 @@
 
 @implementation BackupTableViewController
 
-@synthesize applicationKeysArray;
-@synthesize applicationsDictionary;
+@synthesize applicationsArray;
+@synthesize applicationNamesArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,10 +37,12 @@
 {
     [super viewDidLoad];
     
-    //Create list of applications and alphabetisize
-    self.applicationKeysArray = [[NSArray alloc] initWithArray:self.ReturnBundleDictionaries];
-    self.applicationKeysArray = [self.applicationKeysArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    
+    //Create list of application bundle names
+    self.applicationsArray = [[NSArray alloc] initWithArray: self.ReturnBundleDictionaries];
+    NSLog(@"%@", applicationsArray);
+    NSSortDescriptor *alphaDescriptor = [[NSSortDescriptor alloc] initWithKey:@"CFBundleDisplayName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    self.applicationsArray= [applicationsArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:alphaDescriptor]];
+    NSLog(@"%@", applicationsArray);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -92,7 +94,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.applicationKeysArray count];
+    return [self.applicationsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +104,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.applicationKeysArray objectAtIndex:indexPath.row];
+    NSDictionary *applicationDictionary = [applicationsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [applicationDictionary objectForKey: @"CFBundleDisplayName"];
     
     return cell;
 }
@@ -159,23 +162,67 @@
      */
 }
 
+
 - (NSArray *)ReturnBundleDictionaries
 {
-    // Create path to plist file
-    NSString *const cacheFileName = @"com.apple.mobile.installation.plist";
-	NSString *relativeCachePath = [[@"Library" stringByAppendingPathComponent:@"Caches"]
-                                   stringByAppendingPathComponent:cacheFileName];
+	static NSString *const cacheFileName = @"com.apple.mobile.installation.plist";
+    
+	NSString *relativeCachePath = [[@"Library" stringByAppendingPathComponent: @"Caches"]
+                                   stringByAppendingPathComponent: cacheFileName];
+	NSDictionary *cacheDict = nil;//[[NSDictionary alloc] init];
+	NSString *path = [[NSString alloc] init];
+    
+	// Loop through all possible paths the cache could be in
+	for (short i = 0; 1; i++)
+	{
+        
+		switch (i) {
+            case 0: // Jailbroken apps will find the cache here; their home directory is /var/mobile
+                path = [NSHomeDirectory() stringByAppendingPathComponent: relativeCachePath];
+                break;
+            case 1: // App Store apps and Simulator will find the cache here; home (/var/mobile/) is 2 directories above sandbox folder
+                path = [[NSHomeDirectory() stringByAppendingPathComponent: @"../.."]
+                        stringByAppendingPathComponent: relativeCachePath];
+                break;
+            case 2: // If the app is anywhere else, default to hardcoded /var/mobile/
+                path = [@"/var/mobile" stringByAppendingPathComponent: relativeCachePath];
+                break;
+            default: // Cache not found (loop not broken)
+                return NULL;
+            break; }
+		
+		BOOL isDir = NO;
+		if ([[NSFileManager defaultManager] fileExistsAtPath: path 
+                                                 isDirectory: &isDir] 
+            && !isDir) // Ensure that file exists
+			cacheDict = [NSDictionary dictionaryWithContentsOfFile: path];
+		
+		if (cacheDict) // If cache is loaded, then break the loop. If the loop is not "broken," it will return NO later (default: case)
+			break;
+	}
+	
+	NSDictionary *applicationsDictionary = [cacheDict objectForKey: @"User"]; // Then all the user (App Store /var/mobile/Applications) apps
+    
+    //Split dictionary by using the keys
+    NSMutableArray *applicationBundleNamesArray = [[NSMutableArray alloc] initWithCapacity: 0];
+    for (NSString *applicationBundle in applicationsDictionary.allKeys)
+    {
+        [applicationBundleNamesArray addObject: [applicationsDictionary 
+                                                 objectForKey: applicationBundle]];
+    }
+    
+    //Return the new array
+	return applicationBundleNamesArray;
+}
 
-    // App Store apps and Simulator will find the cache here,
-    // home (/var/mobile/) is 2 directories above sandbox folder
-    NSString *path = [[NSString alloc] init];
-    path = [[NSHomeDirectory() stringByAppendingPathComponent:@"../.."]
-            stringByAppendingPathComponent: relativeCachePath];
-    NSDictionary *cacheDict = [[NSDictionary alloc]initWithContentsOfFile:path];
-
-    // Then all the user (App Store /var/mobile/Applications) apps names
-	applicationsDictionary = [cacheDict objectForKey: @"User"];  
-    return [applicationsDictionary allKeys];
+- (NSArray *)ReturnApplicationNames
+{
+    NSMutableArray *tApplicationNamesArray = [[NSMutableArray alloc] initWithCapacity:0];
+    for (NSDictionary *applicationDictionary in self.applicationsArray) {
+        [tApplicationNamesArray addObject:[applicationDictionary objectForKey:@"CFBundleDisplayName"]];
+    }
+    
+    return tApplicationNamesArray;
 }
 
 @end

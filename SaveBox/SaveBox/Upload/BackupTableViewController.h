@@ -10,9 +10,10 @@
 
 @interface BackupTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *applicationKeysArray;
-@property (strong, nonatomic) NSDictionary *applicationsDictionary;
+@property (strong, nonatomic) NSArray *applicationsArray;
+@property (strong, nonatomic) NSArray *applicationNamesArray;
 
 - (NSArray *)ReturnBundleDictionaries;
+- (NSArray *)ReturnApplicationNames;
 
 @end
