@@ -112,7 +112,7 @@
     // Return the number of rows in the section.
     return [self.applicationsArray count];
 }
-
+	
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BackupCell";
